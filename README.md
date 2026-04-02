@@ -20,22 +20,29 @@ Product managers working on or transitioning into AI products. You don't need a 
 **Prerequisites:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and configured.
 
 ```bash
-git clone https://github.com/sanjeevrao1992/ai-evals-for-pms.git
-cd ai-evals-for-pms
+git clone https://github.com/sanjeevrao1992/AIevals-for-PMs.git
+cd AIevals-for-PMs
 claude
 ```
 
 That's it. Claude will introduce itself as your tutor and guide you through the first lesson.
 
-## Course Outline
+## Course Structure
 
-The course is structured as a 7-day journey. Each day simulates a real PM scenario — you've just inherited an AI product and need to evaluate it.
+The course follows a 7-day PM journey. Each day simulates a real scenario —
+you've just been handed an AI product and need to evaluate it.
 
-| Day | Lesson | Topic | Duration |
-|-----|--------|-------|----------|
-| 1 | D1-L1 | What Does This System Actually Do? | ~25 min |
+| Day | Scenario | Lessons | Key Skills |
+|-----|----------|---------|------------|
+| **Day 1** | You Just Inherited an AI Product | L1–L2 | Read a pipeline, orient in production data |
+| **Day 2** | Is It Actually Working? | L1–L3 | pass@k, reliable@k, ship/hold decisions |
+| **Day 3** | Where Is It Breaking? | L1–L3 | Failure taxonomy, surface mapping, prioritization |
+| **Day 4** | Can You Trust the Numbers? | L1–L3 | Ground truth design, inter-rater reliability, LLM-as-judge |
+| **Day 5** | What Should You Measure? | L1–L3 | Metric design, guardrail vs optimization metrics |
+| **Day 6** | How Do You Improve It? | L1–L2 | A/B testing for AI, regression testing, launch criteria |
+| **Day 7** | How Do You Communicate It? | L1–L2 | Translating eval signals to product decisions, eval cadence |
 
-More lessons coming soon.
+> **Currently available:** Day 1, Lesson 1. New lessons added regularly.
 
 ## How It Works
 
