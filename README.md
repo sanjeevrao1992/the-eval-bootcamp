@@ -1,8 +1,8 @@
-# AI Evals for PMs
+# The Eval Bootcamp
 
-An interactive, hands-on course that teaches product managers how to evaluate AI systems — by actually doing it.
+A hands-on AI evals course for product managers — taught inside Claude Code, not a classroom.
 
-No slides. No videos. You open Claude Code, and it becomes your AI evals tutor: teaching concepts one at a time, guiding you through exercises with real datasets, and evaluating your product decisions.
+No slides. No videos. You clone this repo, open Claude Code, and it becomes your AI evals tutor: teaching concepts one at a time, guiding you through exercises with real datasets, and evaluating your product decisions against a scoring rubric.
 
 ## Who Is This For?
 
@@ -11,8 +11,10 @@ Product managers working on or transitioning into AI products. You don't need a 
 ## What You'll Learn
 
 - **How to read an AI system** — understand LLM pipelines, trace production logs, and identify which stage is responsible when things go wrong
-- **How to measure AI reliability** — pass@k, reliable@k, and the consistency gap that determines ship/hold decisions
-- **How to map failure surfaces** — a structured framework for identifying every way your AI system can fail
+- **How to measure AI reliability** — pass@k, reliable@k, and the consistency gap that determines real ship/hold decisions
+- **How to map and triage failure surfaces** — a structured framework for finding every way your AI system can break
+- **How to build automated quality checks** — code-based graders, LLM-as-judge, and layering strategies for production
+- **How to build ground truth you can trust** — golden datasets, contamination detection, and dataset lifecycle management
 - **How to connect evals to product decisions** — not just "what's the accuracy?" but "what should we do about it?"
 
 ## Quick Start
@@ -20,49 +22,59 @@ Product managers working on or transitioning into AI products. You don't need a 
 **Prerequisites:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and configured.
 
 ```bash
-git clone https://github.com/sanjeevrao1992/AIevals-for-PMs.git
-cd AIevals-for-PMs
+git clone https://github.com/sanjeevrao1992/the-eval-bootcamp.git
+cd the-eval-bootcamp
 claude
 ```
 
-That's it. Claude will introduce itself as your tutor and guide you through the first lesson.
+That's it. Claude reads `CLAUDE.md` on startup and introduces itself as your tutor. It will check your progress and guide you from wherever you left off.
 
 ## Course Structure
 
-The course follows a 7-day PM journey. Each day simulates a real scenario —
-you've just been handed an AI product and need to evaluate it.
+21 days, one lesson per day. Each lesson is ~25–40 min and follows the same structure:
 
-| Day | Scenario | Lessons | Key Skills |
-|-----|----------|---------|------------|
-| **Day 1** | You Just Inherited an AI Product | L1–L2 | Read a pipeline, orient in production data |
-| **Day 2** | Is It Actually Working? | L1–L3 | pass@k, reliable@k, ship/hold decisions |
-| **Day 3** | Where Is It Breaking? | L1–L3 | Failure taxonomy, surface mapping, prioritization |
-| **Day 4** | Can You Trust the Numbers? | L1–L3 | Ground truth design, inter-rater reliability, LLM-as-judge |
-| **Day 5** | What Should You Measure? | L1–L3 | Metric design, guardrail vs optimization metrics |
-| **Day 6** | How Do You Improve It? | L1–L2 | A/B testing for AI, regression testing, launch criteria |
-| **Day 7** | How Do You Communicate It? | L1–L2 | Translating eval signals to product decisions, eval cadence |
+1. **Concepts** — Industry-agnostic frameworks any PM can apply. Taught one concept at a time with concrete examples.
+2. **Exercise** — You analyze a real (synthetic) dataset from an AI-powered menu verification system at a food delivery company. You direct the analysis; Claude does the computation; you interpret the results.
+3. **PM Decision Point** — You write a recommendation using what you calculated. Claude evaluates your response against a scoring rubric.
 
-> **Currently available:** Day 1, Lesson 1. New lessons added regularly.
+Your progress is saved locally (`progress/progress.json`, gitignored) so you pick up where you left off.
 
-## How It Works
+### Week 1 — You Just Inherited an AI Product
 
-Each lesson follows a three-part structure:
+| Day | Lesson | Key Skills |
+|-----|--------|------------|
+| D1 | What Does This System Actually Do? | Pipeline stages, non-determinism, reading traces |
+| D2 | Mapping Every Way Your AI System Can Fail | Evaluation surface map, failure layers, coverage gaps |
+| D3 | Error Analysis | Open coding, axial coding, triage framework |
 
-1. **Concepts** — Industry-agnostic frameworks any PM can apply. Claude teaches one concept at a time, checking your understanding before moving on.
-2. **Exercise** — You analyze a real (synthetic) dataset from an AI-powered menu verification system at a food delivery company. You direct the analysis; Claude does the computation. You interpret the results.
-3. **PM Decision Point** — You write a memo, recommendation, or artifact using what you calculated. Claude evaluates your response.
+### Week 2 — Building Your Evaluation Toolkit
 
-Your progress is saved locally so you can pick up where you left off.
+| Day | Lesson | Key Skills |
+|-----|--------|------------|
+| D4 | Thinking in Distributions | Shape before depth, pass@k, reliable@k, the gap |
+| D5 | The Three Types of Quality Checks | Code-based, model-based, human graders; layering strategy |
+| D6 | LLM-as-Judge | Calibration trap, Critique Shadowing, failure modes, meta-evaluation |
+
+### Week 3 — Measuring What Matters
+
+| Day | Lesson | Key Skills |
+|-----|--------|------------|
+| D7 | Ground Truth and Golden Datasets | Three sources of ground truth, contamination, dataset lifecycle |
+| D8–D9 | *(coming soon)* | RAG evaluation, hallucination detection |
+
+### Weeks 4–7 — *(coming soon)*
+Metric design, release criteria, eval-driven development, observability, red teaming, and more.
 
 ## What's in the Repo
 
 ```
-lessons/        Lesson content (concepts + exercises + decision points)
+lessons/        Lesson content — concepts, exercises, decision points (D1.md through D7.md)
 exercises/      CSV datasets you'll analyze during exercises
-tutor/          Session protocol and scoring rubrics (Claude's instructions)
-progress/       Your local progress (gitignored)
+tutor/          Session protocol and scoring rubrics (Claude's tutor instructions)
+progress/       Your local progress — gitignored, never leaves your machine
+CLAUDE.md       Course configuration — Claude reads this on startup
 ```
 
 ## License
 
-[CC BY-NC-SA 4.0](LICENSE) — Share and adapt for non-commercial purposes with attribution.
+[CC BY-NC-SA 4.0](LICENSE) — Free to use and adapt for non-commercial purposes with attribution.

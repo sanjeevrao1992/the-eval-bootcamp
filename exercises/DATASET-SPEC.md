@@ -83,6 +83,113 @@ Controlled test data. Same input run 5 times to measure pass@k and reliable@k.
 
 ---
 
+## grader-comparison-dataset.csv (20 rows)
+
+Grader comparison data. Same 20 menu verification decisions evaluated by all three grader types.
+
+**Design targets:**
+- Code-Human agreement: 65% (13/20)
+- Model-Human agreement: 80% (16/20)
+- Code-Model agreement: 65% (13/20)
+- 8 patterns represented: PPP(7), FFF(4), PFF(3), FPP(2), PPF(1), FFP(1), PFP(1), FPF(1)
+
+**Columns (12):**
+
+| Column | Description |
+|--------|-------------|
+| eval_id | Case identifier (E-01 through E-20) |
+| change_type | One of: price, description, allergen_dietary, image, category |
+| change_summary | Human-readable summary of the menu change |
+| llm_decision | approve, reject, or flag_for_review |
+| llm_reasoning | The system's reasoning for its decision |
+| ground_truth | approve or reject (always binary) |
+| code_grader | PASS or FAIL — code-based grader result |
+| code_rule | Which rule the code grader applied |
+| model_grader | PASS or FAIL — LLM judge result |
+| model_critique | The LLM judge's reasoning |
+| human_grader | PASS or FAIL — human reviewer result |
+| human_note | The human reviewer's reasoning |
+
+**Key teaching patterns:**
+- PFF (E-12, E-13, E-14): Code misses unverifiable claims and reasoning contradictions
+- FPP (E-15, E-16): Code too rigid on seasonal/stale-reference edge cases
+- FPF (E-20): Code catches allergen safety issue that model misses — deterministic rules matter for safety
+- FFP (E-18): Both automated graders miss certificate that human verifies
+
+---
+
+## judge-calibration-dataset.csv (20 rows)
+
+Judge calibration data. Same 20 menu verification decisions evaluated by two LLM judge prompt versions (V1=vague, V2=specific rubric) plus human expert ground truth.
+
+**Design targets:**
+- V1-Human agreement: 35% (7/20) — vague judge is nearly useless
+- V2-Human agreement: 85% (17/20) — specific rubric dramatically better
+- V1 recall on FAIL: 8% (1/13) — misses almost all real failures
+- V2 recall on FAIL: 77% (10/13) — catches most but not all
+- V2 precision on FAIL: 100% (10/10) — when V2 flags, it's always real
+- Human verdict distribution: 7 PASS, 13 FAIL (dataset skewed toward cases requiring judgment)
+
+**Columns (11):**
+
+| Column | Description |
+|--------|-------------|
+| case_id | Case identifier (J-01 through J-20) |
+| change_type | One of: price, description, allergen_dietary, category |
+| change_summary | Human-readable summary of the menu change |
+| llm_decision | The menu verifier's decision (approve/reject) |
+| llm_reasoning | The menu verifier's reasoning |
+| human_verdict | PASS or FAIL — domain expert ground truth |
+| human_critique | The expert's detailed reasoning |
+| judge_v1_verdict | PASS or FAIL — vague judge prompt result |
+| judge_v1_reasoning | The V1 judge's reasoning |
+| judge_v2_verdict | PASS or FAIL — specific rubric judge result |
+| judge_v2_reasoning | The V2 judge's reasoning |
+
+**Key teaching patterns:**
+- V1 is a verbosity-bias machine: approves any decision with coherent-sounding reasoning (18/20 PASS)
+- V2 catches unverifiable claims (J-02, J-04, J-09, J-11, J-13, J-15, J-17, J-20), fabricated reasoning (J-08), and ungrounded justifications (J-05) that V1 misses
+- V2 remaining failures illustrate three distinct judge limitation categories:
+  - **Rubric gap** (J-07): "Angus" beef is a breed claim the rubric doesn't explicitly cover
+  - **Context gap** (J-14): "House-made hot sauce" from a restaurant flagged 4 times for misrepresenting store-bought as house-made — judge can't see vendor history
+  - **Policy ambiguity** (J-18): "Traditional Japanese-style ramen" from a fusion restaurant — is "Japanese-style" a cuisine descriptor or an authenticity claim?
+- V2 correctly handles nuance: J-19 (Thai restaurant serving "Thai-style" food) passes V2 correctly
+
+---
+
+## eval-dataset-audit.csv (40 rows)
+
+Eval dataset audit data. Metadata for 40 cases in an existing eval dataset, designed for learners to discover quality problems.
+
+**Design targets:**
+- Verdict distribution: 27 PASS (68%), 13 FAIL (32%) — not enough failures
+- Difficulty skew: 22 easy (55%), 11 medium (28%), 5 hard (13%), 2 edge_case (5%)
+- Change type skew: price 17 (43%), description 12 (30%), allergen 6 (15%), image 3 (8%), category 2 (5%)
+- Contaminated ground truth: 10 cases (7 copied_from_v1, 3 model_generated)
+- Stale labels (before 2026-01-01 policy update): 11 cases
+- High redundancy (4+ similar cases): 10 cases
+
+**Columns (8):**
+
+| Column | Description |
+|--------|-------------|
+| case_id | Case identifier (DS-01 through DS-40) |
+| change_type | One of: price, description, allergen_dietary, image, category |
+| difficulty | easy, medium, hard, or edge_case |
+| ground_truth_source | How the label was created: expert_annotation, model_generated, or copied_from_v1 |
+| ground_truth_date | When the label was created (ISO date) |
+| human_verdict | PASS or FAIL |
+| similar_cases_in_dataset | Count of similar cases already in the dataset |
+| notes | Free-text context about the case |
+
+**Key teaching patterns:**
+- **Contamination**: DS-24/DS-25 (allergen cases labeled by v1) are especially dangerous — safety-critical labels from an untrusted source
+- **Staleness + contamination overlap**: DS-31 through DS-35 are both contaminated AND stale — double problem
+- **Redundancy**: 8+ easy price cases under 15% — learner should recognize these as wasted capacity
+- **Coverage gaps**: hard/edge cases underrepresented (7/40), description cases underrepresented relative to their failure importance
+
+---
+
 ## Key metrics the course tracks across lessons
 
 - Approval accuracy (correct approve/reject decisions)
