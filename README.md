@@ -48,17 +48,78 @@ If you've asked "how do I know if this AI is actually working?" — this course 
 
 ## Quick Start
 
-**Prerequisites:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and configured.
-Open your Terminal, or Cursor or obsidia, and run this command:
+### Step 1 — Create an Anthropic account
 
-bash
+Claude Code requires an Anthropic account. If you don't have one, create a free account at [claude.ai](https://claude.ai). You'll use this to authenticate Claude Code in Step 3.
+
+---
+
+### Step 2 — Install Claude Code
+
+Claude Code is a command-line tool that lets you talk to Claude directly in your terminal, with access to your local files. It's what powers the tutor.
+
+**Mac / Linux:**
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+> **Don't have npm?** Install [Node.js](https://nodejs.org/) first (it includes npm), then run the command above.
+
+**Windows:** Use [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install), then follow the Mac/Linux steps above.
+
+**Verify the install:**
+```bash
+claude --version
+```
+
+The first time you run `claude`, it will prompt you to log in with your Anthropic account.
+
+---
+
+### Step 3 — Clone the course and start
+
+```bash
 git clone https://github.com/sanjeevrao1992/the-eval-bootcamp.git
 cd the-eval-bootcamp
 claude
+```
 
-Claude reads CLAUDE.md on startup and introduces itself as your tutor. It checks your progress and picks up from where you left off.
+> **Don't have git?** Download it from [git-scm.com](https://git-scm.com/downloads), or use [GitHub Desktop](https://desktop.github.com/) to clone the repo visually — then open your terminal, navigate to the `the-eval-bootcamp` folder, and run `claude`.
 
+Claude reads `CLAUDE.md` on startup and introduces itself as your tutor. It will check your progress and suggest your next lesson.
 
+---
+
+### Resuming after your first session
+
+Next time, just navigate to the folder and run `claude` again:
+
+```bash
+cd the-eval-bootcamp
+claude
+```
+
+Your progress is saved locally in `progress/progress.json` — gitignored and never leaves your machine.
+
+---
+
+### Works with Terminal, Cursor, or Obsidian
+
+- **Terminal** (Mac/Linux): run `claude` from inside the repo folder
+- **Cursor**: open the repo folder in Cursor, then open the built-in terminal (`Ctrl+`` `) and run `claude`
+- **Obsidian**: open your system terminal, navigate to the repo folder, and run `claude`
+
+---
+
+### Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| `claude: command not found` | Run `npm install -g @anthropic-ai/claude-code` again, then restart your terminal |
+| `permission denied` on install | Try `sudo npm install -g @anthropic-ai/claude-code` |
+| Claude asks to approve file writes | Type `yes` — it needs to save your progress to `progress/progress.json` |
+| Claude doesn't introduce itself as tutor | Make sure you're running `claude` from inside the `the-eval-bootcamp` folder, not a parent directory |
+| Stuck mid-lesson | Type `resume` — Claude will re-read your progress file and pick up where you left off |
 
 ---
 
@@ -102,14 +163,14 @@ Claude reads CLAUDE.md on startup and introduces itself as your tutor. It checks
 | D20 | Regulatory and Legal Context | AI Act, liability, what product people need to know |
 | D21 | Building an Eval Culture | Institutionalizing evals, team buy-in, eval as product practice |
 
-> **Currently available:** D1–D7 (Week 1). New lessons added regularly.
+> **Currently available:** D1–D19 (Weeks 1–3, Days 1–19). D20–D21 coming soon.
 
 ---
 
 ## What's in the Repo
 
 ```
-lessons/        Lesson content — concepts, exercises, decision points (D1.md through D7.md)
+lessons/        Lesson content — concepts, exercises, decision points (D1.md through D19.md)
 exercises/      CSV datasets you'll analyze during exercises
 tutor/          Session protocol and scoring rubrics (Claude's tutor instructions)
 progress/       Your local progress — gitignored, never leaves your machine
