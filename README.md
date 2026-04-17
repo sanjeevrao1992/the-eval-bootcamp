@@ -48,15 +48,57 @@ If you've asked "how do I know if this AI is actually working?" — this course 
 
 ## Quick Start
 
-**Prerequisites:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and configured.
+Quick Start
+Step 1 — Install Claude Code
+Claude Code is a command-line tool that lets you chat with Claude directly in your terminal, with access to your local files. It's what powers the tutor.
+Mac / Linux:
+bashnpm install -g @anthropic-ai/claude-code
 
-```bash
-git clone https://github.com/sanjeevrao1992/the-eval-bootcamp.git
+Don't have npm? Install Node.js first (includes npm), then run the command above.
+
+Verify the install worked:
+bashclaude --version
+You'll be asked to log in with your Anthropic account the first time. If you don't have one, create a free account at claude.ai — Claude Code uses your account for authentication.
+
+Step 2 — Clone and start the course
+bashgit clone https://github.com/sanjeevrao1992/the-eval-bootcamp.git
 cd the-eval-bootcamp
 claude
-```
 
-Claude reads `CLAUDE.md` on startup and introduces itself as your tutor. It checks your progress and picks up from where you left off.
+Don't have git? Install it from git-scm.com, or use GitHub Desktop to clone the repo visually.
+
+
+Step 3 — What to expect
+When Claude starts, it reads CLAUDE.md and introduces itself as your tutor. It will:
+
+Check if you've completed any lessons before
+Greet you and recap where you left off (or welcome you fresh)
+Suggest your next lesson and ask if you're ready to begin
+
+Your first session will look something like this:
+Hi! I'm your AI evals tutor for The Eval Bootcamp.
+
+It looks like you haven't started yet. I'd suggest beginning with
+Day 1: "What Does This System Actually Do?" — it lays the foundation
+for everything else.
+
+Ready to start? Or would you like an overview of the full course first?
+Just type your reply naturally — no commands or special syntax needed.
+
+Resuming after your first session
+Next time, just navigate to the folder and run claude again:
+bashcd the-eval-bootcamp
+claude
+Your progress is saved locally in progress/progress.json. Claude will pick up exactly where you left off.
+
+Works with Terminal, Cursor, or Obsidian
+Wherever you prefer to work:
+
+Terminal (Mac/Linux): run claude from the repo folder
+Cursor: open the repo folder, then open the built-in terminal and run claude
+Obsidian: open your terminal, navigate to the repo folder, and run claude
+
+
 
 ---
 
