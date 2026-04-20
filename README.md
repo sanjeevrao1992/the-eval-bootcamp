@@ -147,37 +147,37 @@ Your progress is saved automatically after each lesson. The tutor will pick up e
 
 | Day | Lesson | Key Skills |
 |-----|--------|------------|
-| D1 - Pipeline Mapping | Pipeline stages, non-determinism, reading traces |
-| D2 - Failure Surface Mapping | Evaluation surface map, failure layers, coverage gaps |
-| D3 - Error Analysis | Open coding, axial coding, saturation, triage |
-| D4 - Thinking in Distributions | Shape before depth, pass@k, reliable@k, the consistency gap |
-| D5 - Grader Types | Code-based, model-based, human graders; layering strategy |
-| D6 - LLM-as-Judge | Calibration trap, Critique Shadowing, failure modes, meta-evaluation |
-| D7 - Golden Datasets | Three sources, contamination, dataset lifecycle |
+| D1 | Pipeline Mapping | Pipeline stages, non-determinism, reading traces |
+| D2 | Failure Surface Mapping | Evaluation surface map, failure layers, coverage gaps |
+| D3 | Error Analysis | Open coding, axial coding, saturation, triage |
+| D4 | Thinking in Distributions | Shape before depth, pass@k, reliable@k, the consistency gap |
+| D5 | Grader Types | Code-based, model-based, human graders; layering strategy |
+| D6 | LLM-as-Judge | Calibration trap, Critique Shadowing, failure modes, meta-evaluation |
+| D7 | Golden Datasets | Three sources, contamination, dataset lifecycle |
 
 ### Week 2 — Metrics and Measurement at Scale (Days 8–14)
 
 | Day | Lesson | Key Skills |
 |-----|--------|------------|
-| D8 - RAG Evaluation | Precision@k, faithfulness, answer relevance, context recall |
-| D9 - Hallucination Detection | Detection strategies, grounding, citation evaluation |
-| D10 - Release Criteria | Guardrail vs optimization metrics, ship/hold thresholds |
-| D11 - Metric Design | Metric tradeoffs, evaluation cost, coverage strategy |
-| D12 - Fairness & Subgroups | Subgroup slicing, disparity detection, fairness in practice |
-| D13 - Eval-Driven Development | Evals as product specs, regression testing, eval cadence |
-| D14 - Observability | Logging, tracing, what to instrument and why |
+| D8 | RAG Evaluation | Precision@k, faithfulness, answer relevance, context recall |
+| D9 | Hallucination Detection | Detection strategies, grounding, citation evaluation |
+| D10 | Release Criteria | Guardrail vs optimization metrics, ship/hold thresholds |
+| D11 | Metric Design | Metric tradeoffs, evaluation cost, coverage strategy |
+| D12 | Fairness & Subgroups | Subgroup slicing, disparity detection, fairness in practice |
+| D13 | Eval-Driven Development | Evals as product specs, regression testing, eval cadence |
+| D14 | Observability | Logging, tracing, what to instrument and why |
 
 ### Week 3 — Ship, Monitor, and Scale (Days 15–21)
 
 | Day | Lesson | Key Skills |
 |-----|--------|------------|
-| D15 - Agent Evaluation | Multi-step pipelines, tool use, trajectory evaluation |
-| D16 - AI Experiments | LLM A/B testing, variance, confounds |
-| D17 - Launch Readiness | Pre-launch checklist, drift detection, incident response |
-| D18 - Red Teaming | Threat modeling, adversarial prompts, stress testing |
-| D19 - Ship Decisions | Synthesizing eval signals into a go/no-go recommendation |
-| D20 - Regulatory Context | AI Act, liability, what product people need to know |
-| D21 - Eval Culture | Institutionalizing evals, team buy-in, eval as product practice |
+| D15 | Agent Evaluation | Multi-step pipelines, tool use, trajectory evaluation |
+| D16 | AI Experiments | LLM A/B testing, variance, confounds |
+| D17 | Launch Readiness | Pre-launch checklist, drift detection, incident response |
+| D18 | Red Teaming | Threat modeling, adversarial prompts, stress testing |
+| D19 | Ship Decisions | Synthesizing eval signals into a go/no-go recommendation |
+| D20 | Regulatory Context | AI Act, liability, what product people need to know |
+| D21 | Eval Culture | Institutionalizing evals, team buy-in, eval as product practice |
 
 > **Currently available:** D1–D19 (Weeks 1–3, Days 1–19). D20–D21 coming soon.
 
