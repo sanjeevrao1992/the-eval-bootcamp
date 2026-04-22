@@ -6,6 +6,24 @@ This document defines how to run an interactive tutoring session. Follow this pr
 
 ## Phase 1: Welcome (1-2 minutes)
 
+### Step 0 — Update check (every session, before greeting)
+
+Before anything else in the session, silently check whether the course has been updated since the learner last pulled:
+
+1. Run `git fetch` (quietly — don't surface output).
+2. Run `git log HEAD..@{u} --oneline` to see commits the learner is behind.
+3. **If the result is empty** (learner is up to date): proceed silently to Step 1. Do not mention the check.
+4. **If there are new commits**, tell the learner:
+   > "📢 The course has been updated since you last pulled — there are [N] new change(s) on the repo. For the best learning experience, I highly recommend pulling the latest version before we continue. Want me to run `git pull` now?"
+5. **If the learner approves:** run `git pull`, confirm success ("✅ Updated — pulled [N] change(s)"), then proceed to Step 1.
+6. **If the learner declines:** acknowledge briefly ("No problem — we'll continue with the version you have") and proceed to Step 1. Do not re-prompt this session.
+
+**Error handling:**
+- If `git fetch` fails (offline, network issue, not a git repo): skip silently and continue to Step 1. Never block the session on this check.
+- If `git pull` fails after approval (unexpected conflict): surface the error, suggest the learner run `git status` and resolve manually, then continue teaching with the existing version.
+
+### Greeting
+
 1. Check `progress/progress.json` for prior sessions
 2. If returning learner: "Welcome back. Last time you completed [lesson]. Ready for [next lesson]?"
 3. If new learner (no prior progress): deliver the **Full Onboarding** below before starting D1 - Pipeline Mapping.
@@ -227,8 +245,35 @@ Walk through each exercise step. For each step:
 
 1. Summarize what they learned: "Today you learned [2-3 key takeaways]."
 2. Update `progress/progress.json` with completion data
-3. Preview next lesson: "In the next lesson, you'll learn to [brief description]."
-4. Ask if they have questions
+3. **Milestone check:** if the just-completed lesson is **D1, D7, or D21**, run the Milestone Feedback Flow below before continuing.
+4. Preview next lesson: "In the next lesson, you'll learn to [brief description]." *(Skip this step for D21 — there is no next lesson.)*
+5. Ask if they have questions
+
+### Milestone Feedback Flow
+
+Run this only at D1, D7, and D21 — after the summary and progress update, before previewing the next lesson.
+
+**After D1 (first lesson complete):**
+1. Give a short, specific congratulatory message — name what they just accomplished on their first lesson (e.g., reading a real production pipeline end-to-end and tracing a failure — the foundation everything else builds on). Keep it genuine, not generic.
+2. Share the feedback link:
+   > "I'd love your feedback on this first lesson so I can keep improving the course. It takes ~2 minutes:
+   > 👉 https://forms.gle/P7GPaEkTrS4Hmric8"
+3. Ask: *"Would you like to take a couple of minutes to share your feedback now, or would you rather proceed to the next lesson?"*
+
+**After D7 (Week 1 complete):**
+1. Congratulate them on finishing Week 1. Name the arc they just completed: pipeline mapping → failure surface → error analysis → distributions → graders → LLM-as-judge → golden datasets. They now have the full eval foundation.
+2. Share the feedback link:
+   > "Hitting the end of Week 1 is a real milestone. A quick pulse on how it's going would help me a lot — ~2 minutes:
+   > 👉 https://forms.gle/MQpXeWXw7nVSzSZWA"
+3. Ask: *"Would you like to take a couple of minutes to share your feedback now, or would you rather proceed to the next lesson?"*
+
+**After D21 (course complete):**
+1. This is the final message of the course — make it count. Congratulate them on completing all 21 lessons and name 2-3 concrete capabilities they now have (e.g., reading any AI system from scratch, designing a ship/hold framework, institutionalizing evals across a team).
+2. Include the feedback link inside this same closing message as the one remaining ask:
+   > "One last favor before you go — your feedback here shapes what comes next for future learners:
+   > 👉 https://forms.gle/WxSWx1j37tqKsedeA
+   > Thank you for sticking with it."
+3. Stop here. Do **not** ask "proceed to the next lesson?" — there is none. This is the end of the course.
 
 ---
 
