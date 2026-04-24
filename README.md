@@ -51,13 +51,14 @@ If you've ever asked *"how do I know if this AI is actually working?"* — this 
 ## 🚀 Quick Start
 
 **Already set up? Skip ahead:**
+- Not sure if you have Node.js or Claude Code installed? → [Step 1](#step-1----check-your-setup)
 - Have Node.js but not Claude Code? → [Step 2](#step-2----install-claude-code)
 - Have Claude Code installed? → [Step 3](#step-3----get-the-course-files)
 - Have the files cloned? → [Step 4](#step-4----start-the-course)
 
 ---
 
-### Step 1 — Get your terminal and Anthropic account ready
+### Step 1 — Check your setup
 
 **Open a terminal.** This is where the course runs.
 - **Mac:** Search "Terminal" in Spotlight, or press `` Cmd+Space `` and type Terminal
@@ -66,19 +67,24 @@ If you've ever asked *"how do I know if this AI is actually working?"* — this 
 
 > ⚠️ **Using Cursor?** Claude Code is a separate tool — Cursor is your editor, Claude Code is what runs the course. Type commands in the terminal (View → Terminal), not Cursor's chat box.
 
+**Check if you have Node.js:**
+```bash
+node --version
+```
+If you see a version number, you have Node.js. If not, download it from [nodejs.org](https://nodejs.org) (use the LTS version) before continuing.
+
+**Check if you have Claude Code:**
+```bash
+claude --version
+```
+If you see a version number, skip to [Step 3](#step-3----get-the-course-files). If not, continue to Step 2.
+
 **Create an Anthropic account** (free) at [claude.ai](https://claude.ai) if you don't have one — you'll need it to authenticate Claude Code.
 
 ---
 
 ### Step 2 — Install Claude Code
 
-First, check if you have Node.js:
-```bash
-node --version
-```
-If you see a version number, skip straight to installing Claude Code. If not, download Node.js from [nodejs.org](https://nodejs.org) (use the LTS version), then come back here.
-
-Install Claude Code:
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
@@ -118,6 +124,8 @@ You'll see a `>` prompt — that means it worked. Type `go` and your tutor will 
 ---
 
 ### 🔄 Returning after your first session
+
+Each time you come back to continue the course — the next day, or after any break — run these two commands from your terminal:
 
 ```bash
 cd ai-evals-bootcamp
