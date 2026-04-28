@@ -245,35 +245,187 @@ Walk through each exercise step. For each step:
 
 1. Summarize what they learned: "Today you learned [2-3 key takeaways]."
 2. Update `progress/progress.json` with completion data
-3. **Milestone check:** if the just-completed lesson is **D1, D7, or D21**, run the Milestone Feedback Flow below before continuing.
+3. **Milestone check:** if the just-completed lesson is **D1, D7, D14, or D21**, run the Milestone Feedback Flow below before continuing.
 4. Preview next lesson: "In the next lesson, you'll learn to [brief description]." *(Skip this step for D21 — there is no next lesson.)*
 5. Ask if they have questions
 
 ### Milestone Feedback Flow
 
-Run this only at D1, D7, and D21 — after the summary and progress update, before previewing the next lesson.
+Run this only at D1, D7, D14, and D21 — after the summary and progress update, before previewing the next lesson.
+
+---
 
 **After D1 (first lesson complete):**
-1. Give a short, specific congratulatory message — name what they just accomplished on their first lesson (e.g., reading a real production pipeline end-to-end and tracing a failure — the foundation everything else builds on). Keep it genuine, not generic.
-2. Share the feedback link:
-   > "I'd love your feedback on this first lesson so I can keep improving the course. It takes ~2 minutes:
-   > 👉 https://forms.gle/P7GPaEkTrS4Hmric8"
-3. Ask: *"Would you like to take a couple of minutes to share your feedback now, or would you rather proceed to the next lesson?"*
+
+Print this celebration block verbatim:
+
+```
+    ╭──────────────────────────────────────────────╮
+    │                                              │
+    │      🚀  Day 1 Complete — You're in.  🚀    │
+    │                                              │
+    ╰──────────────────────────────────────────────╯
+
+    Most people say they'll learn AI evals someday.
+    You just started.
+
+    What you can now do:
+    → Read an AI pipeline from a blank page
+    → Spot non-determinism in production traces
+    → Identify which stage is breaking before your eng team does
+
+    See you tomorrow for Day 2. 👋
+```
+
+Then share the feedback link:
+> "I'd love your feedback on this first lesson so I can keep improving the course. It takes ~2 minutes:
+> 👉 https://forms.gle/P7GPaEkTrS4Hmric8"
+
+Ask: *"Would you like to take a couple of minutes to share your feedback now, or would you rather proceed to the next lesson?"*
+
+---
 
 **After D7 (Week 1 complete):**
-1. Congratulate them on finishing Week 1. Name the arc they just completed: pipeline mapping → failure surface → error analysis → distributions → graders → LLM-as-judge → golden datasets. They now have the full eval foundation.
-2. Share the feedback link:
-   > "Hitting the end of Week 1 is a real milestone. A quick pulse on how it's going would help me a lot — ~2 minutes:
-   > 👉 https://forms.gle/MQpXeWXw7nVSzSZWA"
-3. Ask: *"Would you like to take a couple of minutes to share your feedback now, or would you rather proceed to the next lesson?"*
+
+Print this celebration block verbatim:
+
+```
+    ✦  ✧  ✦  ✧  ✦  ✧  ✦  ✧  ✦  ✧  ✦  ✧  ✦
+
+    ╔══════════════════════════════════════════╗
+    ║                                          ║
+    ║        🏆  WEEK 1 COMPLETE  🏆           ║
+    ║           Your Eval Foundation           ║
+    ║                                          ║
+    ╚══════════════════════════════════════════╝
+
+    ✦  ✧  ✦  ✧  ✦  ✧  ✦  ✧  ✦  ✧  ✦  ✧  ✦
+
+    7 days. 7 concepts. A foundation most AI teams don't have.
+
+    Skills unlocked:
+    ✅ D1 — Pipeline Mapping
+    ✅ D2 — Failure Surface Mapping
+    ✅ D3 — Error Analysis
+    ✅ D4 — Thinking in Distributions
+    ✅ D5 — Grader Types
+    ✅ D6 — LLM-as-Judge
+    ✅ D7 — Golden Datasets
+
+    You can now walk into any AI system review and ask
+    better questions than most engineers in the room.
+
+    Week 2 is where it gets sharp — metrics, fairness,
+    release criteria. See you there. 🔥
+```
+
+Then share the feedback link:
+> "Hitting the end of Week 1 is a real milestone. A quick pulse on how it's going would help me a lot — ~2 minutes:
+> 👉 https://forms.gle/MQpXeWXw7nVSzSZWA"
+
+Ask: *"Would you like to take a couple of minutes to share your feedback now, or would you rather proceed to the next lesson?"*
+
+---
+
+**After D14 (Week 2 complete):**
+
+Print this celebration block verbatim:
+
+```
+    ★  ·  ·  ·  ★  ·  ·  ·  ★  ·  ·  ·  ★  ·  ·  ·  ★
+
+    ╔═══════════════════════════════════════════════╗
+    ║                                               ║
+    ║         ⚡  WEEK 2 COMPLETE  ⚡               ║
+    ║      Metrics and Measurement at Scale         ║
+    ║                                               ║
+    ╚═══════════════════════════════════════════════╝
+
+    ★  ·  ·  ·  ★  ·  ·  ·  ★  ·  ·  ·  ★  ·  ·  ·  ★
+
+    Progress: ██████████████░░░░░░░  14 / 21 days
+
+    Skills unlocked:
+    ✅ D8  — RAG Evaluation
+    ✅ D9  — Hallucination Detection
+    ✅ D10 — Release Criteria
+    ✅ D11 — Metric Design
+    ✅ D12 — Fairness & Subgroups
+    ✅ D13 — Eval-Driven Development
+    ✅ D14 — Observability
+
+    You now have a repeatable system for measuring AI quality
+    — and knowing when it's lying to you.
+
+    One week left. Launching, red teaming, and shipping with
+    confidence. Let's finish this. 💪
+```
+
+No feedback form for D14. Proceed directly to previewing D15.
+
+---
 
 **After D21 (course complete):**
-1. This is the final message of the course — make it count. Congratulate them on completing all 21 lessons and name 2-3 concrete capabilities they now have (e.g., reading any AI system from scratch, designing a ship/hold framework, institutionalizing evals across a team).
-2. Include the feedback link inside this same closing message as the one remaining ask:
-   > "One last favor before you go — your feedback here shapes what comes next for future learners:
-   > 👉 https://forms.gle/WxSWx1j37tqKsedeA
-   > Thank you for sticking with it."
-3. Stop here. Do **not** ask "proceed to the next lesson?" — there is none. This is the end of the course.
+
+First, run the confetti animation (fails silently if python3 is unavailable):
+
+```bash
+python3 -c "
+import random, time
+chars = ['🎉', '✨', '⭐', '🎊', '🌟', '💫', '*', '+', '·']
+for _ in range(40):
+    print(' ' * random.randint(2, 50) + random.choice(chars))
+    time.sleep(0.04)
+" 2>/dev/null || true
+```
+
+Then print this celebration block verbatim:
+
+```
+    🎊  🎊  🎊  🎊  🎊  🎊  🎊  🎊  🎊  🎊  🎊  🎊
+
+    ╔══════════════════════════════════════════════════╗
+    ║                                                  ║
+    ║           🏅  COURSE COMPLETE  🏅                ║
+    ║                                                  ║
+    ║             AI Evals Bootcamp                    ║
+    ║             21 Days  ·  3 Weeks                  ║
+    ║                                                  ║
+    ║                 ★  ★  ★  ★  ★                    ║
+    ║                                                  ║
+    ╚══════════════════════════════════════════════════╝
+
+    🎊  🎊  🎊  🎊  🎊  🎊  🎊  🎊  🎊  🎊  🎊  🎊
+
+    21 days ago you started with one question:
+    "how do I know if this AI actually works?"
+
+    Now you have the answer — and the tools to prove it.
+
+    ✅ D1  Pipeline Mapping          ✅ D12 Fairness & Subgroups
+    ✅ D2  Failure Surface Mapping   ✅ D13 Eval-Driven Development
+    ✅ D3  Error Analysis            ✅ D14 Observability
+    ✅ D4  Thinking in Distributions ✅ D15 Agent Evaluation
+    ✅ D5  Grader Types              ✅ D16 AI Experiments
+    ✅ D6  LLM-as-Judge              ✅ D17 Launch Readiness
+    ✅ D7  Golden Datasets           ✅ D18 Red Teaming
+    ✅ D8  RAG Evaluation            ✅ D19 Ship Decisions
+    ✅ D9  Hallucination Detection   ✅ D20 Regulatory Context
+    ✅ D10 Release Criteria          ✅ D21 Eval Culture
+    ✅ D11 Metric Design
+
+    You're now one of a small group of PMs who can
+    systematically evaluate AI systems — not just vibe-check them.
+
+    Ship with confidence. 🚀
+```
+
+Then include the feedback link as the one remaining ask:
+> "One last favor before you go — your feedback here shapes what comes next for future learners:
+> 👉 https://forms.gle/WxSWx1j37tqKsedeA
+> Thank you for sticking with it."
+
+Stop here. Do **not** ask "proceed to the next lesson?" — there is none. This is the end of the course.
 
 ---
 
