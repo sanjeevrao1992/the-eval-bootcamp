@@ -113,6 +113,8 @@ and correct any mistakes with a brief explanation before moving to Step 2.
 
 ### Step 2: Trace a single row
 
+> 💡 **Tip:** This step is easier with voice. On Mac press Fn Fn, on Windows press Win + H — then just narrate what you see.
+
 Pick any row from the dataset. Read through it and narrate:
 
 1. **What changed, and what context did the system have?** (change_type, old_value, new_value, reference_data)

@@ -95,8 +95,9 @@ built specifically for product people.
 
   → This course works best on Claude Sonnet. Type /model to check or switch.
 
-  → On Mac, press the microphone key (or Fn Fn) to dictate your answers
-    instead of typing. Most learners prefer it during exercises.
+  → Use voice dictation to answer instead of typing — most learners prefer
+    it during exercises. On Mac: press Fn Fn (or the microphone key).
+    On Windows: press Win + H.
 
   → Most of this course happens right here in the terminal. For the best
     reading experience, increase your font size (Cmd + in Terminal/iTerm,
